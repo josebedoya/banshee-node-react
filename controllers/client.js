@@ -19,24 +19,6 @@ exports.getClient = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
-// exports.validate = method => {
-//   switch (method) {
-//     case 'createClient': {
-//       return [
-//         check('nit', 'NIT is required')
-//           .not()
-//           .isEmpty(),
-//         check('fullname', 'Fullname is required')
-//           .not()
-//           .isEmpty(),
-//         check('credit_limit', 'Credit limit is required')
-//           .not()
-//           .isEmpty()
-//       ];
-//     }
-//   }
-// };
-
 exports.createClient = (req, res) => {
   const {
     nit,
@@ -44,20 +26,15 @@ exports.createClient = (req, res) => {
     address,
     phone,
     credit_limit,
-    available_credit,
     visits_percentage
   } = req.body;
-  // const errors = validationResult(req);
-  // if (!errors.isEmpty()) {
-  //   return res.status(422).json({ errors: errors.array() });
-  // }
   Client.create({
     nit,
     fullname,
     address,
     phone,
     credit_limit,
-    available_credit,
+    available_credit: credit_limit,
     visits_percentage
   })
     .then(client => {
