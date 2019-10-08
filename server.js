@@ -11,14 +11,14 @@ app.use(express.json({ extended: false }));
 app.get('/', (req, res) => res.send('API Running'));
 
 // Models
-// const User = require('./models/user');
-// const Client = require('./models/client');
-// const Visit = require('./models/visit');
-// const Comment = require('./models/comment');
-// const Agent = require('./models/agent');
-// const Country = require('./models/country');
-// const State = require('./models/state');
-// const City = require('./models/city');
+const User = require('./models/user');
+const Client = require('./models/client');
+const Visit = require('./models/visit');
+const Comment = require('./models/comment');
+const Agent = require('./models/agent');
+const Country = require('./models/country');
+const State = require('./models/state');
+const City = require('./models/city');
 
 // Define Routes
 app.use('/api/auth/', require('./routes/api/auth'));
@@ -32,19 +32,19 @@ app.use('/api/cities/', require('./routes/api/cities'));
 app.use('/api/comments/', require('./routes/api/comments'));
 
 // Create db relationships
-// Visit.belongsTo(Client, { constraints: false });
-// Visit.belongsTo(Agent, { constraints: false });
-// Comment.belongsTo(Visit, { constraints: false });
-// State.belongsTo(Country, { constraints: false });
-// City.belongsTo(Country, { constraints: false });
-// City.belongsTo(State, { constraints: false });
-// Client.belongsTo(Country, { constraints: false });
-// Client.belongsTo(State, { constraints: false });
-// Client.belongsTo(City, { constraints: false });
-// //
-// Visit.belongsTo(User, { constraints: false });
-// Comment.belongsTo(User, { constraints: false });
-// Client.belongsTo(User, { constraints: false });
+Visit.belongsTo(Client, { constraints: false });
+Visit.belongsTo(Agent, { constraints: false });
+Comment.belongsTo(Visit, { constraints: false });
+State.belongsTo(Country, { constraints: false });
+City.belongsTo(Country, { constraints: false });
+City.belongsTo(State, { constraints: false });
+Client.belongsTo(Country, { constraints: false });
+Client.belongsTo(State, { constraints: false });
+Client.belongsTo(City, { constraints: false });
+//
+Visit.belongsTo(User, { constraints: false });
+Comment.belongsTo(User, { constraints: false });
+Client.belongsTo(User, { constraints: false });
 
 sequelize
   .sync()
