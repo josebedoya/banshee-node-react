@@ -19,6 +19,38 @@ exports.getClient = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
+exports.createClientAsync = async (req, res) => {
+  const {
+    nit,
+    fullname,
+    address,
+    phone,
+    credit_limit,
+    visits_percentage
+  } = req.body;
+  try {
+    const client = await Client.create({
+      nit,
+      fullname,
+      address,
+      phone,
+      credit_limit,
+      available_credit: credit_limit,
+      visits_percentage
+    });
+    res.json(client);
+  } catch (err) {
+    res.status(422).json({
+      errors: err.errors.map(error => {
+        return {
+          attribute: error.path,
+          message: error.message
+        };
+      })
+    });
+  }
+};
+
 exports.createClient = (req, res) => {
   const {
     nit,

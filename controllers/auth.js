@@ -35,12 +35,4 @@ exports.login = async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server error');
   }
-
-  User.findByPk()
-    .then(agents => {
-      res.json(agents);
-    })
-    .catch(err => {
-      console.log(err);
-    });
 };

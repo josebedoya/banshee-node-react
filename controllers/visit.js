@@ -19,27 +19,14 @@ exports.getVisit = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
-exports.createClient = (req, res) => {
-  const {
-    nit,
-    fullname,
-    address,
-    phone,
-    credit_limit,
-    available_credit,
-    visits_percentage
-  } = req.body;
+exports.createVisit = (req, res) => {
+  const { net, description } = req.body;
   Visit.create({
-    nit,
-    fullname,
-    address,
-    phone,
-    credit_limit,
-    available_credit,
-    visits_percentage
+    net,
+    description
   })
-    .then(client => {
-      res.json(client);
+    .then(visit => {
+      res.json(visit);
     })
     .catch(err => {
       res.status(422).json({

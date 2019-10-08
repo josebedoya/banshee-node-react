@@ -7,16 +7,18 @@ const clientController = require('../../controllers/client');
 // @route get api/clients
 // @desc List of clients
 // @access Private
-router.get('/', clientController.getClients);
+router.get('/', auth, clientController.getClients);
 
 // @route get api/client/id
 // @desc Get client by id
 // @access Private
-router.get('/:id', clientController.getClient);
+router.get('/:id', auth, clientController.getClient);
 
 // @route post api/clients
 // @desc Create a client
 // @access Private
-router.post('/', clientController.createClient);
+router.post('/', auth, clientController.createClient);
+
+router.post('/test', clientController.createClientAsync);
 
 module.exports = router;
