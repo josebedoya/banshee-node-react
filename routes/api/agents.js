@@ -6,4 +6,6 @@ const agentController = require('../../controllers/agent');
 
 router.get('/', auth, agentController.getAgents);
 
+router.post('/', auth, agentController.createAgent);
+
 module.exports = router;
