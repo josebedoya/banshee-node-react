@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 const agentController = require('../../controllers/agent');
 
-router.get('/', agentController.getAgents);
+router.get('/', auth, agentController.getAgents);
 
 module.exports = router;
