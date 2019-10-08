@@ -16,7 +16,8 @@ const Visit = sequelize.define('visit', {
       notEmpty: {
         args: true,
         msg: 'NET is required'
-      }
+      },
+      isDecimal: true
     }
   },
   visit_total: {
@@ -26,7 +27,8 @@ const Visit = sequelize.define('visit', {
       notEmpty: {
         args: true,
         msg: 'Visit total is required'
-      }
+      },
+      isDecimal: true
     }
   },
   description: {

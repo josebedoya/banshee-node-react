@@ -38,7 +38,8 @@ const Client = sequelize.define('client', {
       notEmpty: {
         args: true,
         msg: 'Credit limit is required'
-      }
+      },
+      isDecimal: true
     }
   },
   available_credit: {
@@ -48,7 +49,8 @@ const Client = sequelize.define('client', {
       notEmpty: {
         args: true,
         msg: 'Available credit is required'
-      }
+      },
+      isDecimal: true
     }
   },
   visits_percentage: {
@@ -58,7 +60,8 @@ const Client = sequelize.define('client', {
       notEmpty: {
         args: true,
         msg: 'Visits percentage is required'
-      }
+      },
+      isNumeric: true
     }
   }
 });
