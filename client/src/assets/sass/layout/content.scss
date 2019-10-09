@@ -1,0 +1,392 @@
+.ql-container {
+	font-family: $body-font;
+	line-height: 1.5;
+	font-size: 16px;
+	color: #595959;
+	p {
+		margin-bottom: 30px;
+	}
+	h2, h3, h4, h5 {
+		font-weight: 400;
+		margin-bottom: 20px;
+		color: #595959;
+	}
+	h2 { font-size: 22px !important }
+	h3 { font-size: 20px !important }
+	h4 { font-size: 18px !important }
+	h5 { font-size: 16px !important }
+}
+.main-side {
+	background: $bg-content;
+}
+.content {
+	padding: 60px 0 0;
+	flex: auto;
+}
+.content-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 30px 20px;
+	transition: all 0.2s ease-in-out;
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 130px;
+		transition: .3s ease all;
+		background: $primary-color;
+	}
+	@media only screen and (max-width: 767px) {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+.component {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.content-heading {
+	color: #FFF;
+	h2, h3, h4 {
+		color: #FFF;
+	}
+}
+
+.header-title {
+	margin: -40px 10px 0;
+	border-radius: 6px;
+	padding: 12px 15px;
+	background: $bg-sidebar;
+	color: #FFF;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	.hleft {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		.anticon {
+			font-size: 24px;
+			margin-right: 14px;
+		}
+		h1 {
+			margin: 0;
+			color: inherit;
+			line-height: 1;
+		}
+		.sub {
+			font-size: 12px;
+			display: block;
+			margin-top: -1px;
+			color: rgba(#FFF, 0.8);
+		}
+	}
+	.controls {
+		position: relative;
+		.anticon {
+			color: #FFF;
+			font-size: 30px
+		}
+	}
+	~ div {
+		margin-top: 50px;
+	}
+}
+
+.general-box {
+	background: #FFF;
+	min-height: 50px;
+	position: relative;
+	padding: 20px 0;
+	margin-bottom: 20px;
+	border-radius: 4px;
+	box-shadow: 0 1px 15px 1px rgba(#000,.07);
+
+	display: grid;
+	grid-template-columns: 30px 1fr 30px;
+	grid-template-rows: max-content;
+	> * {
+		grid-column: 2 / -2;
+	}
+	.header-title,
+	.ant-table-wrapper {
+		grid-column: 1 / - 1;
+	}
+
+	h3.base-border {
+		margin-top: 30px;
+	}
+}
+
+.boxInner {
+  padding: 20px;
+  background-color: rgba($primary-color, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba($primary-color, 0.22);
+}
+
+.action-title {
+  margin-left: 30px;
+  font-weight: 600;
+}
+
+.steps-bar {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+/**/
+
+.layout-one {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	.layout-one-listbar {
+		width: 300px;
+		border-right: 1px solid #E9E9E9;
+	}
+	.layout-one-list {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		overflow-y: auto
+	}
+	.layout-one-list-item {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 15px 20px;
+		padding-right: 35px;
+		border-bottom: 1px solid #E9E9E9;
+		text-align: left;
+		position: relative;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		&:last-child {
+			border-bottom: none
+		}
+		&.active,
+		&:hover {
+			background-color: #F1F3F6;
+		}
+		.list-image {
+			margin-right: 12px;
+		}
+		.list-info {
+			.name {
+				color: #333;
+				font-size: 13px;
+				font-weight: 500;
+			}
+			.phone {
+				color: #CCC;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				flex-direction: row;
+				font-size: 12px;
+				.icon {
+					font-size: 18px;
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+	.layout-one-box {
+		flex: auto;
+		.controls {
+      align-items: center;
+			display: flex;
+			flex-direction: row;
+			padding: 20px;
+		}
+	}
+	.layout-one-content {
+		display: flex;
+		flex-direction: row;
+		padding: 20px;
+		flex: 1;
+		.content-media {
+			display: flex;
+			flex-direction: column;
+			width: 180px;
+			margin-right: 30px;
+			align-items: center;
+			h3 {
+				font-size: 15px;
+			}
+		}
+		.content-image {
+			width: 120px;
+			height: 120px;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 10px;
+			img {
+				width: 100%;
+				height: 100%;
+				-o-object-fit: cover;
+				object-fit: cover;
+			}
+		}
+		.content-info-details {
+			display: flex;
+			flex-direction: column;
+			width: calc(100% - 180px);
+			.content-info-item {
+				display: flex;
+				align-items: baseline;
+				flex-direction: column;
+				margin-bottom: 14px;
+				width: 50%;
+				.info-label {
+					font-size: 14px;
+					font-weight: 600;
+					line-height: 1.4;
+					margin: 0;
+					margin-right: 15px;
+					text-align: left;
+					min-width: 80px;
+					position: relative;
+				}
+				.info-details {
+					font-size: 14px;
+					color: $value-color;
+					line-height: 1.4;
+					margin: 0;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+/**/
+
+.dashboard {
+  .controls {
+    display: flex;
+    justify-content: flex-start;
+    button {
+      margin: 0 6px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &::last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/**/
+
+.show-data {
+	.controls {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    * {
+      margin: 0 6px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.show-data-inner {
+	columns: 3;
+	margin-bottom: 30px;
+	.show-data-row {
+		margin-bottom: 20px;
+	}
+	.show-data-title {
+		font-weight: 700;
+	}
+}
+
+/**/
+
+.custom-filter-dropdown {
+  padding: 8px;
+  border-radius: 6px;
+  background: #FFF;
+  box-shadow: 0 1px 6px rgba(#000, 0.2);
+}
+
+.custom-filter-dropdown input {
+  width: 130px;
+  margin-right: 8px;
+}
+
+.custom-filter-dropdown button {
+  margin-right: 8px;
+	height: 32px;
+}
+
+.highlight {
+  color: $primary-color;
+}
+
+.svg-buttons {
+	display: flex;
+	justify-content: center;
+	button {
+		margin: 0 4px;
+	}
+}
+
+.sgv-viewer {
+	text-align: center;
+	position: relative;
+	.spin {
+		margin: 40px auto;
+	}
+	.svg-viewer-inner {
+		position: relative;
+	}
+}
+
+/**/
+
+.listIcons {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    padding: 6px 0;
+    .anticon {
+      font-size: 24px;
+    }
+    span {
+      display: inline-block;
+      margin-left: 6px;
+    }
+  }
+}
+
+/**/
+
+@media only screen and (max-width: 768px) {
+  .general-box {
+    grid-template-columns: 12px 1fr 12px;
+  }
+}

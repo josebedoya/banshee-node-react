@@ -1,0 +1,45 @@
+/*
+| -------------------------------------------------------------------
+| Base Colors
+| -------------------------------------------------------------------
+*/
+$primary-color: #00a298 !default;
+$theme-hover-color: #2bb673 !default;
+$body-color: #444 !default;
+$value-color: #777 !default;
+$heading-color: #00a298 !default;
+$error-color: #f5222d;
+
+// Layout
+$bg-header: #00a298 !default;
+$bg-sidebar: #fff !default;
+$bg-content: #f1f3f6 !default;
+
+/*
+| -------------------------------------------------------------------
+| Line Height Variables
+| -------------------------------------------------------------------
+*/
+$line-height-base: 1.4;
+$line-height-content: 1.5;
+
+/*
+| -------------------------------------------------------------------
+| Font Families
+| -------------------------------------------------------------------
+*/
+$body-font: 'Nunito', sans-serif !default;
+$heading-font: 'Nunito', sans-serif !default;
+
+/*
+| -------------------------------------------------------------------
+| Font Sizes
+| -------------------------------------------------------------------
+*/
+$font-size-base: 16px !default;
+$font-size-h1: 32px !default;
+$font-size-h2: 28px !default;
+$font-size-h3: 22px !default;
+$font-size-h4: 18px !default;
+$font-size-h5: 16px !default;
+$font-size-h6: 14px !default;

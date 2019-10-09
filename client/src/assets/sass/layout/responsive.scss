@@ -1,0 +1,12 @@
+@media only screen and (max-width: 767px) {
+	.form-fields-wrapper {
+		display: block !important;
+	}
+	.form-field-wrapper:first-child:nth-last-child(2), .form-field-wrapper:first-child:nth-last-child(2) ~ .form-field-wrapper,
+	.form-field-wrapper:first-child:nth-last-child(3), .form-field-wrapper:first-child:nth-last-child(3) ~ .form-field-wrapper,
+	.form-field-wrapper:first-child:nth-last-child(4), .form-field-wrapper:first-child:nth-last-child(4) ~ .form-field-wrapper,
+	.form-field-wrapper:first-child:nth-last-child(5), .form-field-wrapper:first-child:nth-last-child(5) ~ .form-field-wrapper,
+	.form-field-wrapper:first-child:nth-last-child(6), .form-field-wrapper:first-child:nth-last-child(6) ~ .form-field-wrapper {
+		width: 100%
+	}
+}

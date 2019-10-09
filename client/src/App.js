@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import './App.css';
+import './assets/sass/main.scss';
 
 const App = () => (
   <Fragment>
