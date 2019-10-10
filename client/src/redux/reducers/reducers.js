@@ -1,5 +1,24 @@
 import { combineReducers } from 'redux';
 
-const reducers = combineReducers({});
+import { LOGOUT } from './../actions/auth-actions';
 
-export default reducers;
+import alert from './alert-reducer';
+import auth from './auth-reducer';
+
+import { reducer as reduxForm } from 'redux-form';
+
+const reducers = combineReducers({
+  alert,
+  auth,
+  form: reduxForm
+});
+
+const rootReducer = (state, action) => {
+  if (action.type === LOGOUT) {
+    state = undefined;
+  }
+
+  return reducers(state, action);
+};
+
+export default rootReducer;

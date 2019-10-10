@@ -1,55 +1,56 @@
 .login-page {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	background-position: center;
-	background-size: cover;
-	&:before, &:after {
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-	}
-	&:before {
-		z-index: 1;
-		background: rgba(#222, 0.2);
-	}
-	&:after {
-		z-index: 2;
-		opacity: 0.9;
-		background: linear-gradient(135deg, #ffffff 0%,#238c87 100%);
-	}
-	.logo {
-		height: 130px;
-		margin-bottom: 20px;
-	}
-	button {
-		width: 100%;
-		font-size: 24px;
-	}
-	.ant-alert {
-		margin-bottom: 20px;
-	}
-	.ant-input {
-		background-color: rgba(#FFF, 0.5);
-	}
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &:before {
+    z-index: 1;
+    background: rgba(#222, 0.6);
+  }
+  &:after {
+    z-index: 2;
+    opacity: 0.5;
+    background: linear-gradient(135deg, #ffffff 0%, #238c87 100%);
+  }
+  .logo {
+    height: 130px;
+    margin-bottom: 20px;
+  }
+  button {
+    width: 100%;
+    font-size: 24px;
+  }
+  .ant-alert {
+    margin-bottom: 20px;
+  }
+  .ant-input {
+    background-color: rgba(#fff, 0.5);
+  }
 }
 .auth-box {
-	position: relative;
-	z-index: 3;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	background: rgba(#FFF, 0.4);
-	border-radius: 4px;
-	box-shadow: 0 0 3px 0 rgba(#000, 0.1);
-	width: 400px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(#fff, 0.4);
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 rgba(#000, 0.1);
+  width: 400px;
   padding: 30px;
   .controls button {
     margin: 0;
