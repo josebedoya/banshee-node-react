@@ -1,6 +1,6 @@
 .sidebar {
   background: $bg-sidebar;
-	box-shadow: 1px 0 30px rgba(#000, .1);
+  box-shadow: 1px 0 30px rgba(#000, 0.1);
 }
 .app-logo {
   text-align: center;
@@ -8,10 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 30px;
   height: 60px;
-  margin: 20px 0;
-
+  margin: 10px 0 20px;
+  .sidebar-collapsed & {
+    padding: 0 12px;
+  }
 }
 
 .sidebar-content {
@@ -51,14 +53,15 @@
   .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
     font-size: 18px;
   }
-  .ant-menu-vertical .ant-menu-item:not(:last-child), .ant-menu-vertical-left
-  .ant-menu-item:not(:last-child), .ant-menu-vertical-right
-  .ant-menu-item:not(:last-child), .ant-menu-inline
-  .ant-menu-item:not(:last-child),
-
-  .ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left
-  .ant-menu-item, .ant-menu-vertical-right .ant-menu-item,
-  .ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title,
+  .ant-menu-vertical .ant-menu-item:not(:last-child),
+  .ant-menu-vertical-left .ant-menu-item:not(:last-child),
+  .ant-menu-vertical-right .ant-menu-item:not(:last-child),
+  .ant-menu-inline .ant-menu-item:not(:last-child),
+  .ant-menu-vertical .ant-menu-item,
+  .ant-menu-vertical-left .ant-menu-item,
+  .ant-menu-vertical-right .ant-menu-item,
+  .ant-menu-inline .ant-menu-item,
+  .ant-menu-vertical .ant-menu-submenu-title,
   .ant-menu-vertical-left .ant-menu-submenu-title,
   .ant-menu-vertical-right .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
@@ -76,18 +79,18 @@
   }
   .ant-menu-item,
   .ant-menu-submenu {
-    box-shadow: 0 1px 0 0 rgba(#000, .06);
+    box-shadow: 0 1px 0 0 rgba(#000, 0.06);
     &:last-child {
       box-shadow: none;
     }
   }
   .ant-menu-submenu-selected,
   .ant-menu-sub {
-    background-color: rgba(#000, .02);
+    background-color: rgba(#000, 0.02);
   }
   .ant-menu-item-selected {
     color: $primary-color;
-    background-color: rgba(#000, .02) !important;
+    background-color: rgba(#000, 0.02) !important;
     &:after {
       border-right: 3px solid $primary-color;
     }
@@ -134,10 +137,11 @@
 .ant-menu-dark .ant-menu-item,
 .ant-menu-dark .ant-menu-item-group-title,
 .ant-menu-dark .ant-menu-item > a {
-  color: rgba(#FFF, 0.9);
+  color: rgba(#fff, 0.9);
 }
-.ant-menu-dark, .ant-menu-dark .ant-menu-sub {
-  color: rgba(#FFF, 0.9);
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub {
+  color: rgba(#fff, 0.9);
 }
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
   background-color: darken($bg-sidebar, 8%) !important;

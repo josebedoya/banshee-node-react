@@ -18,3 +18,5 @@ export const loginRequest = user => ({
   type: LOGIN_REQUEST,
   user
 });
+
+export const logout = () => ({ type: LOGOUT });

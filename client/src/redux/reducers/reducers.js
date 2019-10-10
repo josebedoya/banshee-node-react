@@ -4,12 +4,14 @@ import { LOGOUT } from './../actions/auth-actions';
 
 import alert from './alert-reducer';
 import auth from './auth-reducer';
+import agents from './agents-reducer';
 
 import { reducer as reduxForm } from 'redux-form';
 
 const reducers = combineReducers({
   alert,
   auth,
+  agents,
   form: reduxForm
 });
 

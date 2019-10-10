@@ -1,5 +1,4 @@
-export const urlBase = 'http://localhost:3010';
+export const urlBase = 'http://localhost:3010/api';
 
-export const urlAuth = `${urlBase}/api/auth`;
-export const urlUser = `${urlBase}/user`;
+export const urlAuth = `${urlBase}/auth`;
 export const urlAgents = `${urlBase}/agents`;

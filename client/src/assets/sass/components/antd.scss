@@ -37,7 +37,7 @@
   font-weight: 700;
   border: 1px solid rgba($heading-color, 0.15);
   &:focus {
-    outline:none;
+    outline: none;
     border-color: rgba($heading-color, 0.4);
     box-shadow: none;
     ~ label {
@@ -57,7 +57,7 @@
 .ant-input-number {
   border: none;
   &:focus {
-    outline:none;
+    outline: none;
     border-color: rgba($heading-color, 0.4);
     box-shadow: none;
     ~ label {
@@ -67,7 +67,7 @@
   }
 }
 .ant-input-number-focused {
-  outline:none;
+  outline: none;
   border-color: rgba($heading-color, 0.4);
   box-shadow: none;
   ~ label {
@@ -89,11 +89,9 @@
   top: 1px;
   right: 1px;
 }
-.ant-input-number-handler:hover
-.ant-input-number-handler-up-inner,
-.ant-input-number-handler:hover
-.ant-input-number-handler-down-inner {
-    color: $primary-color;
+.ant-input-number-handler:hover .ant-input-number-handler-up-inner,
+.ant-input-number-handler:hover .ant-input-number-handler-down-inner {
+  color: $primary-color;
 }
 
 .ant-calendar-picker {
@@ -117,9 +115,10 @@
 .ant-calendar-decade-panel-selected-cell .ant-calendar-decade-panel-decade,
 .ant-calendar-month-panel-selected-cell .ant-calendar-month-panel-month {
   background-color: $primary-color;
-  color: #FFF;
+  color: #fff;
 }
-.ant-calendar-decade-panel-selected-cell .ant-calendar-decade-panel-decade:hover,
+.ant-calendar-decade-panel-selected-cell
+  .ant-calendar-decade-panel-decade:hover,
 .ant-calendar-year-panel-selected-cell .ant-calendar-year-panel-year:hover,
 .ant-calendar-selected-day .ant-calendar-date:hover,
 .ant-calendar-month-panel-selected-cell .ant-calendar-month-panel-month:hover {
@@ -127,7 +126,7 @@
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: $primary-color;
-  color: #FFF;
+  color: #fff;
 }
 
 .ant-calendar-date:hover {
@@ -145,7 +144,8 @@
 }
 .ant-select-open .ant-select-selection,
 .ant-select-focused .ant-select-selection,
-.ant-select-selection:focus, .ant-select-selection:active {
+.ant-select-selection:focus,
+.ant-select-selection:active {
   border-color: rgba($heading-color, 0.4);
   box-shadow: none;
 }
@@ -174,9 +174,10 @@
 }
 .ant-select-dropdown-menu-item-selected {
   background: $primary-color !important;
-  color: #FFF;
+  color: #fff;
 }
 
+.ant-menu-submenu-selected,
 .ant-menu-vertical .ant-menu-submenu-selected,
 .ant-menu-vertical-left .ant-menu-submenu-selected,
 .ant-menu-vertical-right .ant-menu-submenu-selected {
@@ -205,7 +206,8 @@
     transition: all 0.2s ease;
     pointer-events: none;
   }
-  &.active, &.select {
+  &.active,
+  &.select {
     label {
       top: 12px;
       font-size: 10px;
@@ -243,7 +245,8 @@
 .ant-btn {
   padding: 0 24px;
   font-size: 16px;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $primary-color;
     border-color: $primary-color;
   }
@@ -265,7 +268,7 @@
   &:hover {
     background: $heading-color;
     border: none;
-    color: #FFF;
+    color: #fff;
   }
 }
 .ant-btn-dashed {
@@ -276,7 +279,7 @@
     margin: 50px 0;
     background-color: rgba($primary-color, 0.08);
     &:hover {
-      background-color: #FFF;
+      background-color: #fff;
     }
   }
   &.removeBtn {
@@ -302,13 +305,13 @@
     height: 32px;
     &:hover,
     &:focus {
-      color: #FFF;
+      color: #fff;
     }
   }
 }
 
 .ant-switch-checked {
-  background-color: $primary-color
+  background-color: $primary-color;
 }
 .ant-switch-inner {
   line-height: 0;
@@ -317,11 +320,13 @@
 }
 
 .ant-steps-item-icon > .ant-steps-icon,
-.ant-steps-item-custom.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon,
+.ant-steps-item-custom.ant-steps-item-process
+  .ant-steps-item-icon
+  > .ant-steps-icon,
 .ant-steps-item-process > .ant-steps-item-content > .ant-steps-item-title,
 .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .ant-steps-item-finish > .ant-steps-item-content > .ant-steps-item-title {
-  color: $primary-color
+  color: $primary-color;
 }
 .ant-steps-item-title {
   font-size: 24px;
@@ -346,7 +351,9 @@
 .ant-steps-item-wait > .ant-steps-item-content > .ant-steps-item-description {
   color: rgba(#000, 0.3);
 }
-.ant-steps-item-process > .ant-steps-item-content > .ant-steps-item-description {
+.ant-steps-item-process
+  > .ant-steps-item-content
+  > .ant-steps-item-description {
   color: $primary-color;
   font-weight: 600;
 }
@@ -383,21 +390,22 @@
 
 .ant-radio-button-wrapper-checked {
   background: $primary-color;
-  color: #FFF;
+  color: #fff;
 }
 .ant-radio-button-wrapper-checked:hover {
   border-color: $heading-color;
   background: $heading-color;
   box-shadow: -1px 0 0 0 $heading-color;
-  color: #FFF;
+  color: #fff;
 }
 
-.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
-.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+.ant-radio-group-solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
+.ant-radio-group-solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
   background: $primary-color;
   border-color: $primary-color;
 }
-
 
 /**/
 
@@ -412,11 +420,13 @@
 .ant-table {
   font-size: 16px;
   border-radius: 4px;
+  color: $body-color;
 }
 .ant-table-wrapper {
   margin: 40px 0 20px;
   min-height: 200px;
-  .ant-table-wrapper { // For nested tables
+  .ant-table-wrapper {
+    // For nested tables
     margin: 0;
   }
   .anticon {
@@ -485,21 +495,42 @@
 /**/
 
 .ant-menu-item > a:hover,
-.ant-menu-item-selected > a, .ant-menu-item-selected > a:hover {
-    color: $primary-color;
+.ant-menu-item-selected > a,
+.ant-menu-item-selected > a:hover {
+  color: $primary-color;
 }
 
-
-.ant-menu-submenu-vertical > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:after, .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:after, .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:after, .ant-menu-submenu-inline > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:after, .ant-menu-submenu-vertical > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:before, .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:before, .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:before, .ant-menu-submenu-inline > .ant-menu-submenu-title:hover
-.ant-menu-submenu-arrow:before {
-  background: -webkit-gradient(linear, left top, right top, from($primary-color), to($primary-color));
+.ant-menu-submenu-vertical
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:after,
+.ant-menu-submenu-vertical-left
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:after,
+.ant-menu-submenu-vertical-right
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:after,
+.ant-menu-submenu-inline
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:after,
+.ant-menu-submenu-vertical
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:before,
+.ant-menu-submenu-vertical-left
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:before,
+.ant-menu-submenu-vertical-right
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:before,
+.ant-menu-submenu-inline
+  > .ant-menu-submenu-title:hover
+  .ant-menu-submenu-arrow:before {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from($primary-color),
+    to($primary-color)
+  );
   background: -webkit-linear-gradient(left, $primary-color, $primary-color);
   background: -o-linear-gradient(left, $primary-color, $primary-color);
   background: linear-gradient(to right, $primary-color, $primary-color);

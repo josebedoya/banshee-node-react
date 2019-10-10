@@ -1,7 +1,7 @@
 // Helper for api errors
 import { handleApiErrors, handleApiErrorsText } from './../lib/api-errors';
 
-import { verifyToken } from './../lib/jwt-methods';
+import { checkJWT } from './../lib/jwt-methods';
 
 const handleRequest = request => {
   return request
@@ -32,7 +32,7 @@ export const apiGet = url => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': verifyToken()
+      'x-auth-token': checkJWT()
     }
   });
   return handleRequest(request);
@@ -42,7 +42,7 @@ export const apiGetHTML = url => {
   return fetch(`${url}`, {
     method: 'GET',
     headers: {
-      'x-auth-token': verifyToken()
+      'x-auth-token': checkJWT()
     }
   });
 };
@@ -53,7 +53,7 @@ export const apiPost = (url, obj) => {
     body: JSON.stringify(obj),
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': verifyToken()
+      'x-auth-token': checkJWT()
     }
   });
   return handleRequest(request);
@@ -65,7 +65,7 @@ export const apiPostText = (url, obj) => {
     body: JSON.stringify(obj),
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': verifyToken()
+      'x-auth-token': checkJWT()
     }
   }).then(handleApiErrorsText);
 };
@@ -76,7 +76,7 @@ export const apiPut = (url, id, obj) => {
     body: JSON.stringify(obj),
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': verifyToken()
+      'x-auth-token': checkJWT()
     }
   });
   return handleRequest(request);
@@ -87,7 +87,7 @@ export const apiDelete = (url, id) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': verifyToken()
+      'x-auth-token': checkJWT()
     }
   });
   handleRequest(request);
