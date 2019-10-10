@@ -52,7 +52,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isUpdating: false,
-        data: state.data.concat([payload.data])
+        data: state.data.concat([payload])
       };
     case INSERT_AGENT_ERROR:
       return {

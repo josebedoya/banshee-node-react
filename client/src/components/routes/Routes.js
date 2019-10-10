@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard/Dashboard';
 
 // Agents
 import AgentsContainer from './../Agents/AgentsContainer';
+import AgentNewContainer from './../Agents/AgentNewContainer';
 
 const Routes = () => {
   let match = useRouteMatch();
@@ -13,6 +14,11 @@ const Routes = () => {
       <Route exact path={`${match.path}`} component={Dashboard} />
 
       <Route exact path={`${match.path}/agents`} component={AgentsContainer} />
+      <Route
+        exact
+        path={`${match.path}/agents/new`}
+        component={AgentNewContainer}
+      />
 
       <Redirect to={`${match.url}`} />
     </Switch>
