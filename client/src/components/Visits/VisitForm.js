@@ -5,10 +5,11 @@ import { setPropsAsInitial } from '../hocs/setPropsAsInitial';
 import * as validator from './../../lib/validators';
 
 import InputField from './../common/InputField';
+import SelectField from './../common/SelectField';
 
 const confirm = Modal.confirm;
 
-class ClientForm extends Component {
+class VisitForm extends Component {
   showConfirm = () => {
     const { onBack } = this.props;
     confirm({
@@ -28,7 +29,9 @@ class ClientForm extends Component {
       submitting,
       submitSucceeded,
       onBack,
+      agents,
       isEdit,
+      available_credit,
       isUpdating
     } = this.props;
     return (
@@ -36,55 +39,33 @@ class ClientForm extends Component {
         <Form layout='vertical' onSubmit={handleSubmit}>
           <div className='general-box'>
             <h3 style={{ marginTop: 0 }}>
-              {isEdit ? 'Edit client' : 'New client'}
+              {isEdit ? 'Edit visit' : 'New visit'}
             </h3>
+            <h5>Available credit: {available_credit}</h5>
             <div className='form-fields-wrapper'>
               <Field
-                name='nit'
-                component={InputField}
-                type='text'
-                label='NIT'
+                name='agentId'
+                component={SelectField}
+                label='Sales Representative'
+                placeholder='Sales Representative'
+                items={agents}
                 validate={validator.isRequired}
               />
               <Field
-                name='fullname'
-                component={InputField}
-                type='text'
-                label='Name'
-                validate={validator.isRequired}
-              />
-            </div>
-            <div className='form-fields-wrapper'>
-              <Field
-                name='address'
-                component={InputField}
-                type='text'
-                label='Address'
-              />
-              <Field
-                name='phone'
-                component={InputField}
-                type='text'
-                label='Phone'
-              />
-            </div>
-            <div className='form-fields-wrapper'>
-              <Field
-                name='credit_limit'
-                component={InputField}
-                type='text'
-                label='Credit Limit'
-                readOnly={isEdit}
-                normalize={validator.onlyNumbers}
-                validate={validator.isRequired}
-              />
-              <Field
-                name='visits_percentage'
+                name='net'
                 component={InputField}
                 type='number'
-                label='Visits Percentage'
-                min={0}
-                max={100}
+                label='Net price'
+                max={available_credit}
+                validate={validator.isRequired}
+              />
+            </div>
+            <div className='form-fields-wrapper'>
+              <Field
+                name='description'
+                component={InputField}
+                type='textarea'
+                label='Description'
                 validate={validator.isRequired}
               />
             </div>
@@ -118,9 +99,9 @@ class ClientForm extends Component {
   }
 }
 
-ClientForm = reduxForm({
-  form: 'ClientForm',
+VisitForm = reduxForm({
+  form: 'VisitForm',
   enableReinitialize: true
-})(ClientForm);
+})(VisitForm);
 
-export default setPropsAsInitial(ClientForm);
+export default setPropsAsInitial(VisitForm);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Table, Icon, Divider } from 'antd';
+import { Table, Icon, Divider, Tooltip } from 'antd';
 
 const ClientsList = ({ data, isFetching, confirmDelete }) => {
   const columns = [
@@ -41,21 +41,35 @@ const ClientsList = ({ data, isFetching, confirmDelete }) => {
           : 0
     },
     {
+      title: 'Visits',
+      key: 'visits',
+      width: 100,
+      render: (text, record) => (
+        <Tooltip title='View visits'>
+          <Link to={`/app/visits-client/${record.id}`}>Visits</Link>
+        </Tooltip>
+      )
+    },
+    {
       title: 'Action',
       key: 'action',
       width: 80,
       render: (text, record) => (
         <span>
-          <Link to={`/app/clients/${record.id}/edit`}>
-            <Icon type='edit' />
-          </Link>
+          <Tooltip title='View / edit client'>
+            <Link to={`/app/clients/${record.id}/edit`}>
+              <Icon type='edit' />
+            </Link>
+          </Tooltip>
           <Divider type='vertical' />
-          <span
-            style={{ cursor: 'pointer' }}
-            onClick={() => confirmDelete(record.id, record.fullname)}
-          >
-            <Icon type='delete' />
-          </span>
+          <Tooltip title='Delete client'>
+            <span
+              style={{ cursor: 'pointer' }}
+              onClick={() => confirmDelete(record.id, record.fullname)}
+            >
+              <Icon type='delete' />
+            </span>
+          </Tooltip>
         </span>
       )
     }

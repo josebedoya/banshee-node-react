@@ -6,6 +6,7 @@ import alert from './alert-reducer';
 import auth from './auth-reducer';
 import agents from './agents-reducer';
 import clients from './clients-reducer';
+import visits from './visits-reducer';
 
 import { reducer as reduxForm } from 'redux-form';
 
@@ -14,6 +15,7 @@ const reducers = combineReducers({
   auth,
   agents,
   clients,
+  visits,
   form: reduxForm
 });
 

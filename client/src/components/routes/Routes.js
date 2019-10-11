@@ -8,6 +8,10 @@ import ClientsContainer from './../Clients/ClientsContainer';
 import ClientContainer from './../Clients/ClientContainer';
 import ClientNewContainer from './../Clients/ClientNewContainer';
 
+// Visits
+import VisitsContainer from './../Visits/VisitsContainer';
+import VisitNewContainer from './../Visits/VisitNewContainer';
+
 // Agents
 import AgentsContainer from './../Agents/AgentsContainer';
 import AgentContainer from './../Agents/AgentContainer';
@@ -32,6 +36,15 @@ const Routes = () => {
       <Route
         path={`${match.path}/clients/:id`}
         render={props => <ClientContainer id={props.match.params.id} />}
+      />
+
+      <Route
+        path={`${match.path}/visits-client/:id/new`}
+        render={props => <VisitNewContainer id={props.match.params.id} />}
+      />
+      <Route
+        path={`${match.path}/visits-client/:id`}
+        render={props => <VisitsContainer id={props.match.params.id} />}
       />
 
       <Route exact path={`${match.path}/agents`} component={AgentsContainer} />

@@ -8,6 +8,10 @@ router.get('/', auth, visitController.getVisits);
 
 router.get('/:id', auth, visitController.getVisit);
 
-router.post('/', auth, visitController.createVisit);
+router.post('/', auth, visitController.postVisit);
+
+router.put('/:id', auth, visitController.updateVisit);
+
+router.delete('/:id', auth, visitController.deleteVisit);
 
 module.exports = router;

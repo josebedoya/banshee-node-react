@@ -39,12 +39,10 @@ function* fetchFlow() {
 
 function* insertFlow(action) {
   const { client } = action;
-  console.log(client);
   const newClient = {
     nit: client.nit,
     fullname: client.fullname,
-    address: client.address,
-    phone: client.phone || '',
+    address: client.address || '',
     phone: client.phone || '',
     credit_limit: client.credit_limit,
     visits_percentage: client.visits_percentage,
@@ -52,7 +50,6 @@ function* insertFlow(action) {
     stateId: 1,
     cityId: 1
   };
-  console.log(newClient);
   const { response, error } = yield call(() =>
     apiPost(`${urlClients}`, newClient)
   );
@@ -81,8 +78,8 @@ function* updateFlow(action) {
   const updClient = {
     nit: client.nit,
     fullname: client.fullname,
-    address: client.address,
-    phone: client.phone
+    address: client.address || '',
+    phone: client.phone || ''
   };
   const { response, error } = yield call(() =>
     apiPut(urlClients, id, updClient)

@@ -1,4 +1,5 @@
 const Client = require('../models/client');
+const { encrypt, decrypt } = require('./../util/crypto');
 
 exports.getClients = async (req, res, next) => {
   try {
@@ -37,9 +38,10 @@ exports.postClient = async (req, res) => {
     stateId,
     cityId
   } = req.body;
+  const encryptedNit = encrypt(nit);
   try {
     const client = await Client.create({
-      nit,
+      nit: encryptedNit,
       fullname,
       address,
       phone,
@@ -75,9 +77,18 @@ exports.updateClient = async (req, res) => {
     stateId,
     cityId
   } = req.body;
+  const encryptedNit = encrypt(nit);
   try {
     const client = await Client.update(
-      { nit, fullname, address, phone, countryId, stateId, cityId },
+      {
+        nit: encryptedNit,
+        fullname,
+        address,
+        phone,
+        countryId,
+        stateId,
+        cityId
+      },
       { where: { id: id } }
     );
     Client.findByPk(id)
