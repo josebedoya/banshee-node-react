@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { reduxForm, Field, formValueSelector } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { Form, Button, Modal } from 'antd';
 import { setPropsAsInitial } from '../hocs/setPropsAsInitial';
 import * as validator from './../../lib/validators';

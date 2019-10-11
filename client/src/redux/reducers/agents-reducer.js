@@ -70,7 +70,8 @@ export default function(state = initialState, action) {
 }
 
 // Selectors
-export const getagentById = createSelector(
-  (state, props) => state.agents.data.find(d => d.id === props.id),
+export const getAgentById = createSelector(
+  (state, props) =>
+    state.agents.data.find(d => Number(d.id) === Number(props.id)),
   agent => agent
 );

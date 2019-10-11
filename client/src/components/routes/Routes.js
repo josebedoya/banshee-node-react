@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard/Dashboard';
 
 // Agents
 import AgentsContainer from './../Agents/AgentsContainer';
+import AgentContainer from './../Agents/AgentContainer';
 import AgentNewContainer from './../Agents/AgentNewContainer';
 
 const Routes = () => {
@@ -18,6 +19,10 @@ const Routes = () => {
         exact
         path={`${match.path}/agents/new`}
         component={AgentNewContainer}
+      />
+      <Route
+        path={`${match.path}/agents/:id`}
+        render={props => <AgentContainer id={props.match.params.id} />}
       />
 
       <Redirect to={`${match.url}`} />

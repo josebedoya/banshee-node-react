@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 import { checkJWT } from './lib/jwt-methods';
-import { loadUser } from './redux/actions/auth-actions';
+import { loadUserRequest } from './redux/actions/auth-actions';
 
 import UnauthorizedLayout from './components/layout/UnauthorizedLayout';
 import PrivateRoute from './components/routes/PrivateRoute';
@@ -21,7 +21,7 @@ const jwtoken = checkJWT();
 const App = () => {
   useEffect(() => {
     if (jwtoken) {
-      store.dispatch(loadUser(jwtoken));
+      store.dispatch(loadUserRequest(jwtoken));
     }
   }, []);
 

@@ -3,8 +3,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   LOGOUT,
-  LOAD_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  LOAD_USER_SUCCESS
 } from './../actions/auth-actions';
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case LOAD_USER:
+    case LOAD_USER_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         token: payload,
-        isAuthenticated: true,
+        isAuthenticated: false,
         loading: false
       };
     case LOGIN_ERROR:

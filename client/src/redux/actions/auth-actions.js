@@ -4,13 +4,13 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 
-export const LOAD_USER = 'LOAD_USER';
-export const LOAD_USER2 = 'LOAD_USER2';
+export const LOAD_USER_REQUEST = 'LOAD_USER_REQUEST';
+export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
 
 // Action creators
-export const loadUser = token => ({
-  type: LOAD_USER2,
+export const loadUserRequest = token => ({
+  type: LOAD_USER_REQUEST,
   token
 });
 
