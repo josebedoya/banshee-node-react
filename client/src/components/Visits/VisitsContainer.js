@@ -7,6 +7,7 @@ import { Button, Modal } from 'antd';
 import { fetchClients } from './../../redux/actions/clients-actions';
 import { fetchVisits, deleteVisit } from './../../redux/actions/visits-actions';
 import { getClientById } from '../../redux/reducers/clients-reducer';
+import { getVisitsByClientId } from '../../redux/reducers/visits-reducer';
 
 import * as notify from './../../lib/alerts';
 
@@ -48,7 +49,7 @@ class VisitsContainer extends Component {
   };
 
   render() {
-    const { visits, client } = this.props;
+    const { visits, client, visitsByClientId } = this.props;
     return (
       <div className='component'>
         <div>
@@ -62,12 +63,12 @@ class VisitsContainer extends Component {
             </Link>
           </div>
           <VisitsList
-            data={visits.data}
+            data={visitsByClientId}
             confirmDelete={this.confirmDelete}
             isFetching={visits.isFetching}
           />
           <Button type='primary' htmlType='button' onClick={this.handleAddNew}>
-            Add a new visit
+            Add a new visit of {client.fullname}
           </Button>
         </div>
       </div>
@@ -85,6 +86,7 @@ const mapStateToProps = (state, props) => ({
   client: getClientById(state, props),
   clients: state.clients,
   visits: state.visits,
+  visitsByClientId: getVisitsByClientId(state, props),
   alert: state.alert
 });
 

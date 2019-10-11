@@ -105,3 +105,6 @@ export const getVisitById = createSelector(
     state.visits.data.find(d => Number(d.id) === Number(props.id)),
   visit => visit
 );
+
+export const getVisitsByClientId = (state, props) =>
+  state.visits.data.filter(d => Number(d.clientId) === Number(props.id));

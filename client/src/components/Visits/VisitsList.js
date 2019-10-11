@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Table, Icon, Divider } from 'antd';
+import { Table } from 'antd';
 import moment from 'moment';
 
 const VisitsList = ({ data, isFetching, confirmDelete }) => {
@@ -33,25 +32,6 @@ const VisitsList = ({ data, isFetching, confirmDelete }) => {
       title: 'Visit Total',
       dataIndex: 'visit_total',
       key: 'visit_total'
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      width: 80,
-      render: (text, record) => (
-        <span>
-          <Link to={`/app/agents/${record.id}/edit`}>
-            <Icon type='edit' />
-          </Link>
-          <Divider type='vertical' />
-          <span
-            style={{ cursor: 'pointer' }}
-            onClick={() => confirmDelete(record.id, record.name)}
-          >
-            <Icon type='delete' />
-          </span>
-        </span>
-      )
     }
   ];
 
@@ -59,6 +39,12 @@ const VisitsList = ({ data, isFetching, confirmDelete }) => {
     <Table
       rowKey={data => data.id}
       loading={isFetching}
+      expandedRowRender={record => (
+        <div>
+          <h5>Description</h5>
+          <p style={{ margin: 0 }}>{record.description}</p>
+        </div>
+      )}
       columns={columns}
       dataSource={data}
       size='middle'
