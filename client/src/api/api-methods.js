@@ -90,6 +90,6 @@ export const apiDelete = (url, id) => {
       'x-auth-token': checkJWT()
     }
   });
-  handleRequest(request);
-  return id;
+  return handleRequest(request);
+  //return id;
 };

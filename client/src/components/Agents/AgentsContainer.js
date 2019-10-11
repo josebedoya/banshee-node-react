@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
 
-import { fetchAgents } from './../../redux/actions/agents-actions';
+import { fetchAgents, deleteAgent } from './../../redux/actions/agents-actions';
 
 import * as notify from './../../lib/alerts';
 
 import AgentsList from './AgentsList';
+
+const { confirm } = Modal;
 
 class AgentsContainer extends Component {
   componentDidMount() {
@@ -28,6 +30,18 @@ class AgentsContainer extends Component {
     this.props.history.push('/app/agents/new');
   };
 
+  confirmDelete = (id, name) => {
+    const { deleteAgent } = this.props;
+    confirm({
+      title: 'Do you want to delete this item?',
+      content: `${name}`,
+      onOk() {
+        deleteAgent(id);
+      },
+      onCancel() {}
+    });
+  };
+
   render() {
     const { agents } = this.props;
     return (
@@ -36,7 +50,11 @@ class AgentsContainer extends Component {
           <div className='content-heading'>
             <h2>Agents</h2>
           </div>
-          <AgentsList data={agents.data} isFetching={agents.isFetching} />
+          <AgentsList
+            data={agents.data}
+            confirmDelete={this.confirmDelete}
+            isFetching={agents.isFetching}
+          />
           <Button type='primary' htmlType='button' onClick={this.handleAddNew}>
             Add a new agent
           </Button>
@@ -48,6 +66,7 @@ class AgentsContainer extends Component {
 
 AgentsContainer.propTypes = {
   fetchAgents: PropTypes.func,
+  deleteAgents: PropTypes.func,
   agents: PropTypes.object
 };
 
@@ -60,7 +79,8 @@ export default withRouter(
   connect(
     mapStateToProps,
     {
-      fetchAgents
+      fetchAgents,
+      deleteAgent
     }
   )(AgentsContainer)
 );

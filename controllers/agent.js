@@ -67,7 +67,7 @@ exports.deleteAgent = async (req, res) => {
         id: id
       }
     });
-    res.json(agent);
+    res.json({ id: Number(id) });
   } catch (err) {
     res.status(422).json({
       errors: err.errors.map(error => {

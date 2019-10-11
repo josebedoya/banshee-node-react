@@ -7,7 +7,8 @@ import {
   INSERT_AGENT_ERROR,
   UPDATE_AGENT,
   UPDATE_AGENT_SUCCESS,
-  UPDATE_AGENT_ERROR
+  UPDATE_AGENT_ERROR,
+  DELETE_AGENT_SUCCESS
 } from './../actions/agents-actions';
 
 import { createSelector } from 'reselect';
@@ -87,6 +88,10 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isUpdating: false
+      };
+    case DELETE_AGENT_SUCCESS:
+      return {
+        data: state.data.filter(d => d.id !== payload.id)
       };
 
     default:

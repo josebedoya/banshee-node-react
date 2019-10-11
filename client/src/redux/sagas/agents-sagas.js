@@ -95,8 +95,20 @@ function* deleteFlow(action) {
   const { response, error } = yield call(() => apiDelete(urlAgents, id));
   if (response) {
     yield put({ type: DELETE_AGENT_SUCCESS, payload: response });
+    let alert = {
+      alertType: 'success',
+      title: 'Agent deleted',
+      message: 'Agent has been deleted'
+    };
+    yield put({ type: SET_ALERT, payload: alert });
   } else {
     yield put({ type: DELETE_AGENT_ERROR, error });
+    let alert = {
+      alertType: 'error',
+      title: 'Error deleting agent',
+      message: 'An error occurred while processing your request'
+    };
+    yield put({ type: SET_ALERT, payload: alert });
   }
 }
 

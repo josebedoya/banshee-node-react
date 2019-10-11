@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Table, Icon } from 'antd';
+import { Table, Icon, Divider } from 'antd';
 
-const AgentsList = ({ data, isFetching }) => {
+const AgentsList = ({ data, isFetching, confirmDelete }) => {
   const columns = [
     {
       title: 'Name',
@@ -20,8 +20,13 @@ const AgentsList = ({ data, isFetching }) => {
           <Link to={`/app/agents/${record.id}/edit`}>
             <Icon type='edit' />
           </Link>
-          {/* <Divider type="vertical" />
-          <Link to={`/app/users/${record.id}/delete`}><Icon type="delete" /></Link> */}
+          <Divider type='vertical' />
+          <span
+            style={{ cursor: 'pointer' }}
+            onClick={() => confirmDelete(record.id, record.name)}
+          >
+            <Icon type='delete' />
+          </span>
         </span>
       )
     }
