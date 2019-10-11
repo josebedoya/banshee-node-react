@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { fetchAgents, updateAgent } from '../../redux/actions/agents-actions';
-import { getAgentById } from '../../redux/reducers/agents-reducer';
-import AgentForm from './AgentForm';
+import {
+  fetchClients,
+  updateClient
+} from '../../redux/actions/clients-actions';
+import { getClientById } from '../../redux/reducers/clients-reducer';
+import ClientForm from './ClientForm';
 
 import * as notify from './../../lib/alerts';
 
-class AgentContainer extends Component {
+class ClientContainer extends Component {
   componentDidMount() {
-    if (this.props.agents.data.length === 0) {
-      this.props.fetchAgents();
+    if (this.props.clients.data.length === 0) {
+      this.props.fetchClients();
     }
   }
 
@@ -25,8 +28,8 @@ class AgentContainer extends Component {
 
   handleSubmit = values => {
     const { id } = values;
-    const { updateAgent } = this.props;
-    updateAgent(id, values);
+    const { updateClient } = this.props;
+    updateClient(id, values);
   };
 
   handleOnBack = () => {
@@ -35,15 +38,15 @@ class AgentContainer extends Component {
   };
 
   renderControl = (isEdit, isDelete) => {
-    const { agent, agents } = this.props;
-    if (agent) {
+    const { client, clients } = this.props;
+    if (client) {
       return (
-        <AgentForm
-          {...agent}
+        <ClientForm
+          {...client}
           onSubmit={this.handleSubmit}
           onBack={this.handleOnBack}
           onDelete={this.handleOnDelete}
-          isUpdating={agents.isUpdating}
+          isUpdating={clients.isUpdating}
           isEdit={!!isEdit}
           isDeleteAllow={!!isDelete}
         />
@@ -54,12 +57,12 @@ class AgentContainer extends Component {
 
   renderBody = () => (
     <Route
-      path='/app/agents/:id/edit'
+      path='/app/clients/:id/edit'
       children={
         // eslint-disable-line
         ({ match: isEdit }) => (
           <Route
-            path='/app/agents/:id/delete'
+            path='/app/clients/:id/delete'
             children={
               // eslint-disable-line
               ({ match: isDelete }) => this.renderControl(isEdit, isDelete)
@@ -75,7 +78,7 @@ class AgentContainer extends Component {
       <div className='component'>
         <div>
           <div className='content-heading'>
-            <h2>View / edit agent</h2>
+            <h2>View / edit client</h2>
           </div>
           {this.renderBody()}
         </div>
@@ -84,15 +87,15 @@ class AgentContainer extends Component {
   }
 }
 
-AgentContainer.propTypes = {
+ClientContainer.propTypes = {
   id: PropTypes.string.isRequired,
-  fetchAgents: PropTypes.func.isRequired
+  fetchClients: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, props) => {
   return {
-    agent: getAgentById(state, props),
-    agents: state.agents,
+    client: getClientById(state, props),
+    clients: state.clients,
     alert: state.alert
   };
 };
@@ -101,8 +104,8 @@ export default withRouter(
   connect(
     mapStateToProps,
     {
-      fetchAgents,
-      updateAgent
+      fetchClients,
+      updateClient
     }
-  )(AgentContainer)
+  )(ClientContainer)
 );

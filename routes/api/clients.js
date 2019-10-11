@@ -17,8 +17,10 @@ router.get('/:id', auth, clientController.getClient);
 // @route post api/clients
 // @desc Create a client
 // @access Private
-router.post('/', auth, clientController.createClient);
+router.post('/', auth, clientController.postClient);
 
-router.post('/test', clientController.createClientAsync);
+router.put('/:id', auth, clientController.updateClient);
+
+router.delete('/:id', auth, clientController.deleteClient);
 
 module.exports = router;

@@ -3,6 +3,11 @@ import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom';
 
 import Dashboard from '../Dashboard/Dashboard';
 
+// Clients
+import ClientsContainer from './../Clients/ClientsContainer';
+import ClientContainer from './../Clients/ClientContainer';
+import ClientNewContainer from './../Clients/ClientNewContainer';
+
 // Agents
 import AgentsContainer from './../Agents/AgentsContainer';
 import AgentContainer from './../Agents/AgentContainer';
@@ -13,6 +18,21 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path={`${match.path}`} component={Dashboard} />
+
+      <Route
+        exact
+        path={`${match.path}/clients`}
+        component={ClientsContainer}
+      />
+      <Route
+        exact
+        path={`${match.path}/clients/new`}
+        component={ClientNewContainer}
+      />
+      <Route
+        path={`${match.path}/clients/:id`}
+        render={props => <ClientContainer id={props.match.params.id} />}
+      />
 
       <Route exact path={`${match.path}/agents`} component={AgentsContainer} />
       <Route
