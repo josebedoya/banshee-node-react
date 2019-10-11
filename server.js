@@ -36,6 +36,7 @@ app.use('/api/locations/', require('./routes/api/locations'));
 
 // Create db relationships
 Visit.belongsTo(Client, { constraints: false });
+Client.hasMany(Visit);
 Visit.belongsTo(Agent, { constraints: false });
 Comment.belongsTo(Visit, { constraints: false });
 State.belongsTo(Country, { constraints: false });

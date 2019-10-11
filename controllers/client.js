@@ -4,6 +4,7 @@ const { encrypt, decrypt } = require('./../util/crypto');
 exports.getClients = async (req, res, next) => {
   try {
     const clients = await Client.findAll();
+    const transform = clients.map(d => (d.nit = decrypt(d.nit)));
     res.json(clients);
   } catch {
     res.status(422).json({
