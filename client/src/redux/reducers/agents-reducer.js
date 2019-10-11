@@ -4,7 +4,10 @@ import {
   FETCH_AGENTS_ERROR,
   INSERT_AGENT,
   INSERT_AGENT_SUCCESS,
-  INSERT_AGENT_ERROR
+  INSERT_AGENT_ERROR,
+  UPDATE_AGENT,
+  UPDATE_AGENT_SUCCESS,
+  UPDATE_AGENT_ERROR
 } from './../actions/agents-actions';
 
 import { createSelector } from 'reselect';
@@ -62,6 +65,28 @@ export default function(state = initialState, action) {
           status: error.toString(),
           time: new Date()
         }
+      };
+    //
+    case UPDATE_AGENT:
+      return {
+        isUpdating: true,
+        data: state.data
+      };
+    case UPDATE_AGENT_SUCCESS:
+      return {
+        isUpdating: false,
+        data: state.data.reduce((acc, newData) => {
+          if (newData.id === payload.id) {
+            return [...acc, payload];
+          } else {
+            return [...acc, newData];
+          }
+        }, [])
+      };
+    case UPDATE_AGENT_ERROR:
+      return {
+        ...state,
+        isUpdating: false
       };
 
     default:
