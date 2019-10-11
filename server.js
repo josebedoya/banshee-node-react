@@ -32,14 +32,17 @@ app.use('/api/countries/', require('./routes/api/countries'));
 app.use('/api/states/', require('./routes/api/states'));
 app.use('/api/cities/', require('./routes/api/cities'));
 app.use('/api/comments/', require('./routes/api/comments'));
+app.use('/api/locations/', require('./routes/api/locations'));
 
 // Create db relationships
 Visit.belongsTo(Client, { constraints: false });
 Visit.belongsTo(Agent, { constraints: false });
 Comment.belongsTo(Visit, { constraints: false });
 State.belongsTo(Country, { constraints: false });
+Country.hasMany(State);
 City.belongsTo(Country, { constraints: false });
 City.belongsTo(State, { constraints: false });
+State.hasMany(City);
 Client.belongsTo(Country, { constraints: false });
 Client.belongsTo(State, { constraints: false });
 Client.belongsTo(City, { constraints: false });
